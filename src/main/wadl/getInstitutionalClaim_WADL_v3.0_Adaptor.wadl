@@ -1,0 +1,369 @@
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:prefix1="http://optum.uhc.com/claims/getinstitutionalclaim/v3.0"><grammars><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://apiengine.optum.com" xmlns:tns="http://optum.uhc.com/claims/getinstitutionalclaim/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/claims/getinstitutionalclaim/v3.0">
+<xs:import namespace="http://apiengine.optum.com"/>
+<xs:element name="getInstitutionalClaimRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element form="unqualified" minOccurs="0" name="claimType" type="xs:string"/>
+<xs:element form="unqualified" minOccurs="0" name="claimID" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="getInstitutionalClaimResponse">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns1:result">
+<xs:sequence>
+<xs:element form="unqualified" minOccurs="0" name="institutionalClaim" type="tns:InstitutionalClaimType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="InstitutionalClaimType">
+<xs:sequence>
+<xs:element minOccurs="0" name="claimType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimFirstDateofService" type="xs:string"/>
+<xs:element minOccurs="0" name="claimLastDateofService" type="xs:string"/>
+<xs:element minOccurs="0" name="claimFLNNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="claimID" type="xs:string"/>
+<xs:element minOccurs="0" name="referenceClaimID" type="xs:string"/>
+<xs:element minOccurs="0" name="adjudicatedCOBLevel" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="billTypeCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimSourceSystemCode" type="xs:string"/>
+<xs:element minOccurs="0" name="claimSplitIndicator" type="xs:string"/>
+<xs:element minOccurs="0" name="claimStatusCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimNetworkIndicator" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimCauseCode" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="pendReasonCode" nillable="true" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="encounterIndicator" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="occurrenceCode" nillable="true" type="tns:OccurenceCodeType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="occurenceSpanCode" nillable="true" type="tns:OccurenceCodeType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="conditionCode" nillable="true" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="surgeryDate" type="xs:string"/>
+<xs:element minOccurs="0" name="dischargeDate" type="xs:string"/>
+<xs:element minOccurs="0" name="dischargeTimeHour" type="xs:string"/>
+<xs:element minOccurs="0" name="admitDate" type="xs:string"/>
+<xs:element minOccurs="0" name="admitTimeHour" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="surgicalProcedure" nillable="true" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="timelyFilingLimitDays" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="documentKeys" nillable="true" type="tns:DocumentKeysType"/>
+<xs:element minOccurs="0" name="claimReceiptDate" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="claimEvent" nillable="true" type="tns:ClaimEventType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cesMnemonic" nillable="true" type="tns:MnemonicType"/>
+<xs:element minOccurs="0" name="carcAdjustments" type="tns:ClaimAdjustmentType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="claimRemarks" nillable="true" type="tns:RARCType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="diagnosisCode" nillable="true" type="tns:DiagnosisCodeType"/>
+<xs:element minOccurs="0" name="drgNumber" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="patient" type="tns:IndividualType"/>
+<xs:element minOccurs="0" name="patientAccountNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="privacyIndicator" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="provider" nillable="true" type="tns:ProviderResponseType"/>
+<xs:element minOccurs="0" name="subscriber" type="tns:SubscriberType"/>
+<xs:element minOccurs="0" name="payerType" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="otherPayer" nillable="true" type="tns:OtherPayerType"/>
+<xs:element minOccurs="0" name="claimUHCTotals" type="tns:UHCTotalsType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="claimNotes" nillable="true" type="tns:NotesType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceLine" nillable="true" type="tns:ServiceLineType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CodeDescPairType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OccurenceCodeType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="fromDate" type="xs:string"/>
+<xs:element minOccurs="0" name="throughDate" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentKeysType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="docReferenceValues" nillable="true" type="tns:NameValuePairType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NameValuePairType">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimEventType">
+<xs:sequence>
+<xs:element minOccurs="0" name="claimEventAdjudicationDateTime" type="xs:string"/>
+<xs:element minOccurs="0" name="claimEventType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimEventSeqNum" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="MnemonicType">
+<xs:sequence>
+<xs:element minOccurs="0" name="cesMnemonicCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="cesRemarkCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cesRemarkText" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ClaimAdjustmentType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="adjustments" nillable="true" type="tns:CARCType"/>
+<xs:element minOccurs="0" name="adjustmentTotal" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CARCType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="remarkGroupCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="amount" type="xs:string"/>
+<xs:element minOccurs="0" name="quantity" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RARCType">
+<xs:sequence>
+<xs:element minOccurs="0" name="rarcCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="remarkCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="remarkCodeRecipientType" type="xs:string"/>
+<xs:element minOccurs="0" name="remarkCodeMemberDesc" type="xs:string"/>
+<xs:element minOccurs="0" name="remarkCodeProviderDesc" type="xs:string"/>
+<xs:element minOccurs="0" name="remarkCodeMemberProviderDesc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DiagnosisCodeType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="levelType" type="xs:string"/>
+<xs:element minOccurs="0" name="sequenceNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="claimPresentOnAdmissionsIndicator" type="xs:string"/>
+<xs:element minOccurs="0" name="admittingDiagnosisIndicator" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IndividualType">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="tns:NameType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="identifiers" nillable="true" type="tns:OtherIdentifierSourceType"/>
+<xs:element minOccurs="0" name="birthDate" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NameType">
+<xs:sequence>
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OtherIdentifierSourceType">
+<xs:sequence>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="sourceSystemCode" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ProviderResponseType">
+<xs:sequence>
+<xs:element minOccurs="0" name="providerType" type="xs:string"/>
+<xs:element minOccurs="0" name="providerID" type="xs:string"/>
+<xs:element minOccurs="0" name="providerTIN" type="xs:string"/>
+<xs:element minOccurs="0" name="providerTINTypeCode" type="xs:string"/>
+<xs:element minOccurs="0" name="providerNPI" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="tns:ProviderNameType"/>
+<xs:element minOccurs="0" name="organizationName" type="xs:string"/>
+<xs:element minOccurs="0" name="address" type="tns:AddressType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ProviderNameType">
+<xs:sequence>
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="middleName" type="xs:string"/>
+<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AddressType">
+<xs:sequence>
+<xs:element minOccurs="0" name="addressLine1" type="xs:string"/>
+<xs:element minOccurs="0" name="addressLine2" type="xs:string"/>
+<xs:element minOccurs="0" name="city" type="xs:string"/>
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+<xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SubscriberType">
+<xs:sequence>
+<xs:element minOccurs="0" name="memberGroupNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="memberGroupName" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="identifiers" nillable="true" type="tns:OtherIdentifierSourceType"/>
+<xs:element minOccurs="0" name="name" type="tns:NameType"/>
+<xs:element minOccurs="0" name="birthDate" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="OtherPayerType">
+<xs:sequence>
+<xs:element minOccurs="0" name="otherInsuranceSubscriberID" type="tns:IdentifierType"/>
+<xs:element minOccurs="0" name="otherInsuranceSubscriberName" type="tns:SubscriberNameType"/>
+<xs:element minOccurs="0" name="payerResponsibilitySequenceCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="otherInsurancePayerID" type="xs:string"/>
+<xs:element minOccurs="0" name="otherInsurancePayerName" type="xs:string"/>
+<xs:element minOccurs="0" name="insuranceTypeCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimTotalOtherPayerPaidAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalOtherPayerPatientResponsibilityAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalOtherPayerNotCoveredAmount" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="IdentifierType">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SubscriberNameType">
+<xs:sequence>
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="middleName" type="xs:string"/>
+<xs:element minOccurs="0" name="lastName" type="xs:string"/>
+<xs:element minOccurs="0" name="suffix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UHCTotalsType">
+<xs:sequence>
+<xs:element minOccurs="0" name="claimTotalBilledChargeAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalDeductibleAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalInterestAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalPaidAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="totalCopayAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="totalNotCoveredAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="totalPatientResponsibilityAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalUHCProvWriteOffAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalReimbursementReductionAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalPenaltyAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalStateSurchargeAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalAllowedAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="claimTotalCoinsuranceAmount" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NotesType">
+<xs:sequence>
+<xs:element minOccurs="0" name="noteTypeCode" type="xs:string"/>
+<xs:element minOccurs="0" name="noteTypeText" type="xs:string"/>
+<xs:element minOccurs="0" name="notesCreatedBy" type="xs:string"/>
+<xs:element minOccurs="0" name="notesCreatedDate" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ServiceLineType">
+<xs:sequence>
+<xs:element minOccurs="0" name="claimServiceLineID" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceFirstDateofService" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceLastDateofService" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceNetworkIndicator" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="serviceLineStatusCode" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="pendReasonCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="healthCoverageType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="serviceUnitCount" type="xs:string"/>
+<xs:element minOccurs="0" name="unitOfMeasure" type="xs:string"/>
+<xs:element minOccurs="0" name="revenueCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="ambulatoryPaymentClassificationCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="ambulatoryPaymentStatusCode" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cesMnemonic" nillable="true" type="tns:MnemonicType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="benefitClaimAccumulator" nillable="true" type="tns:BenefitClaimAccumType"/>
+<xs:element minOccurs="0" name="benefitPlan" type="tns:BenefitPlanType"/>
+<xs:element minOccurs="0" name="overrideIndicator" type="xs:string"/>
+<xs:element minOccurs="0" name="penaltyReasonCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="semiPrivateRoomRate" type="xs:string"/>
+<xs:element minOccurs="0" name="cobMethod" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="procedureCode" type="tns:ProcedureCodeType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="provider" nillable="true" type="tns:ProviderResponseType"/>
+<xs:element minOccurs="0" name="claimLineAdjudicationDate" type="xs:string"/>
+<xs:element minOccurs="0" name="carcAdjustments" type="tns:ClaimAdjustmentType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceRemarks" nillable="true" type="tns:RARCType"/>
+<xs:element minOccurs="0" name="authorizationNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="referralNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceLineUHCAmounts" type="tns:ServiceLineUHCTotalsType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceLineOtherPayer" nillable="true" type="tns:ServiceLineOtherPayerType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="serviceNotes" nillable="true" type="tns:NotesType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BenefitClaimAccumType">
+<xs:sequence>
+<xs:element minOccurs="0" name="benefitPlanId" type="xs:string"/>
+<xs:element minOccurs="0" name="benefitBundleOptionId" type="xs:string"/>
+<xs:element minOccurs="0" name="benefitCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="claimAccumulator" type="tns:AccumType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AccumType">
+<xs:sequence>
+<xs:element minOccurs="0" name="tierTypeCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="coverageLevel" type="xs:string"/>
+<xs:element minOccurs="0" name="costShareType" type="xs:string"/>
+<xs:element minOccurs="0" name="claimAccumAppliedAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="accumSnapShotAppliedAmount" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="BenefitPlanType">
+<xs:sequence>
+<xs:element minOccurs="0" name="benefitPlanID" type="xs:string"/>
+<xs:element minOccurs="0" name="benefitBundleOptionID" type="xs:string"/>
+<xs:element minOccurs="0" name="benefitCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="planCoinsurancePercent" type="xs:string"/>
+<xs:element minOccurs="0" name="memberCoinsurancePercent" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ProcedureCodeType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="type" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="hpcscptModifierCode" nillable="true" type="tns:CodeDescPairType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ServiceLineUHCTotalsType">
+<xs:sequence>
+<xs:element minOccurs="0" name="serviceBilledChargeAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceDeductibleAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="servicePaidAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceCopayAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceNotCoveredAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="servicePatientResponsibilityAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceReimbursementReductionAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceAllowedAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceCoinsuranceAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="serviceUHCProvWriteOffAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="servicePenaltyAmount" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ServiceLineOtherPayerType">
+<xs:sequence>
+<xs:element minOccurs="0" name="otherPayerPrimaryIdentifier" type="xs:string"/>
+<xs:element minOccurs="0" name="paidAmount" type="xs:string"/>
+<xs:element minOccurs="0" name="patientResponsibilityAmount" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://apiengine.optum.com" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://apiengine.optum.com">
+<xs:import/>
+<xs:complexType name="result">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="errors" nillable="true" type="tns:errors"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="errors">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="severity" type="tns:statusMessageLevel"/>
+<xs:element minOccurs="0" name="origin" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="uri" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="statusMessageLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INFORMATIONAL"/>
+<xs:enumeration value="FAULT"/>
+<xs:enumeration value="EXCEPTION"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://optum.uhc.com/claims/getinstitutionalclaim/v3.0" xmlns:ns1="http://apiengine.optum.com" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://optum.uhc.com/claims/getinstitutionalclaim/v3.0">
+<xs:import namespace="http://apiengine.optum.com"/>
+<xs:element name="errors" type="ns1:errors"/>
+<xs:element name="result" type="ns1:result"/>
+<xs:element name="statusMessageLevel" type="ns1:statusMessageLevel"/>
+</xs:schema>
+</grammars><resources base="http://apiengine-eisl-alpha1-claims.ose-ctc-core.optum.com/rest/api/eisl/claims/institutionalclaims/v3.0"><resource path="/"><resource path="read"><method name="POST"><request><representation mediaType="application/json" element="prefix1:getInstitutionalClaimRequest"/><representation mediaType="application/xml" element="prefix1:getInstitutionalClaimRequest"/></request><response><representation mediaType="application/json" element="prefix1:getInstitutionalClaimResponse"/><representation mediaType="application/xml" element="prefix1:getInstitutionalClaimResponse"/></response></method></resource></resource></resources></application>

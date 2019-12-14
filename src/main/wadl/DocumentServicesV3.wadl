@@ -1,0 +1,518 @@
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:prefix1="http://optum.uhc.com/fulfillment/documents/v3.0"><grammars><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://optum.uhc.com/fulfillment/documents/findDocuments/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/findDocuments/v3.0">
+<xs:complexType name="findDocumentsResponseType">
+<xs:sequence>
+<xs:element minOccurs="0" name="documentList" type="tns:DocumentListType"/>
+<xs:element minOccurs="0" name="pagination" type="tns:ResponsePaginationType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="document" nillable="true" type="tns:DocumentType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentType">
+<xs:sequence>
+<xs:element minOccurs="0" name="repositoryId" type="xs:string"/>
+<xs:element minOccurs="0" name="repositoryName" type="xs:string"/>
+<xs:element minOccurs="0" name="documentId" type="xs:string"/>
+<xs:element minOccurs="0" name="documentClass" type="xs:string"/>
+<xs:element minOccurs="0" name="documentKeys" type="tns:DocumentKeyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentKeyType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="documentKey" type="tns:NameValType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NameValType">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+<xs:element minOccurs="0" name="dataTypeIndicator" type="xs:string"/>
+<xs:element minOccurs="0" name="operator" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ResponsePaginationType">
+<xs:sequence>
+<xs:element minOccurs="0" name="maxRecords" type="xs:string"/>
+<xs:element minOccurs="0" name="pageNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="pageSize" type="xs:string"/>
+<xs:element minOccurs="0" name="recordCount" type="xs:string"/>
+<xs:element minOccurs="0" name="totalCount" type="xs:string"/>
+<xs:element minOccurs="0" name="totalPages" type="xs:string"/>
+<xs:element minOccurs="0" name="moreRecords" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="FindDocumentsRequestType">
+<xs:sequence>
+<xs:element minOccurs="0" name="repositoryId" type="xs:string"/>
+<xs:element minOccurs="0" name="repositoryName" type="xs:string"/>
+<xs:element minOccurs="0" name="documentClass" type="xs:string"/>
+<xs:element minOccurs="0" name="documentKeys" type="tns:DocumentKeyType"/>
+<xs:element minOccurs="0" name="searchAllVersions" type="xs:boolean"/>
+<xs:element minOccurs="0" name="pagination" type="tns:RequestPaginationType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RequestPaginationType">
+<xs:sequence>
+<xs:element minOccurs="0" name="maxRecords" type="xs:string"/>
+<xs:element minOccurs="0" name="pageNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="pageSize" type="xs:string"/>
+<xs:element minOccurs="0" name="startRecord" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://optum.uhc.com/fulfillment/documents/redeliveryDocument/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/redeliveryDocument/v3.0">
+<xs:complexType name="RedeliveryDocumentRequestType">
+<xs:sequence>
+<xs:element name="redeliveryHeader" type="tns:RedeliveryHeaderType"/>
+<xs:element name="redeliveryDetails" type="tns:RedeliveryDetailsType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RedeliveryHeaderType">
+<xs:sequence>
+<xs:element name="sourceId" type="xs:string"/>
+<xs:element name="redeliveryId" type="xs:string"/>
+<xs:element name="requestType" type="xs:string"/>
+<xs:element name="dataSegment" type="xs:string"/>
+<xs:element name="organization" type="xs:string"/>
+<xs:element name="policy" type="xs:string"/>
+<xs:element name="recipientId" type="xs:string"/>
+<xs:element name="idQualifier" type="xs:string"/>
+<xs:element name="recipientType" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RedeliveryDetailsType">
+<xs:sequence>
+<xs:element minOccurs="0" name="returnAddress" type="tns:ReturnAddressType"/>
+<xs:element name="documentClass" type="xs:string"/>
+<xs:element name="documentId" type="xs:string"/>
+<xs:element name="deliveryMedium" type="xs:string"/>
+<xs:element name="deliveryDetails" type="tns:DeliveryDetailsType"/>
+<xs:element minOccurs="0" name="systemGUID" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ReturnAddressType">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="address1" type="xs:string"/>
+<xs:element minOccurs="0" name="address2" type="xs:string"/>
+<xs:element minOccurs="0" name="address3" type="xs:string"/>
+<xs:element minOccurs="0" name="city" type="xs:string"/>
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+<xs:element minOccurs="0" name="zip" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DeliveryDetailsType">
+<xs:sequence>
+<xs:element name="person" type="tns:PersonType"/>
+<xs:element minOccurs="0" name="mailToAddress" type="tns:AddressType"/>
+<xs:element minOccurs="0" name="mailToAddressInternational" type="tns:AddressInternationalType"/>
+<xs:element minOccurs="0" name="faxNumber" type="xs:string"/>
+<xs:element minOccurs="0" name="emailAddress" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PersonType">
+<xs:sequence>
+<xs:element minOccurs="0" name="prefix" type="xs:string"/>
+<xs:element name="firstName" type="xs:string"/>
+<xs:element minOccurs="0" name="middleName" type="xs:string"/>
+<xs:element name="lastName" type="xs:string"/>
+<xs:element minOccurs="0" name="suffix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AddressType">
+<xs:sequence>
+<xs:element name="address1" type="xs:string"/>
+<xs:element minOccurs="0" name="address2" type="xs:string"/>
+<xs:element minOccurs="0" name="address3" type="xs:string"/>
+<xs:element name="city" type="xs:string"/>
+<xs:element name="state" type="xs:string"/>
+<xs:element name="zip" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AddressInternationalType">
+<xs:sequence>
+<xs:element name="address1" type="xs:string"/>
+<xs:element minOccurs="0" name="address2" type="xs:string"/>
+<xs:element minOccurs="0" name="address3" type="xs:string"/>
+<xs:element name="city" type="xs:string"/>
+<xs:element name="province" type="xs:string"/>
+<xs:element name="postalCode" type="xs:string"/>
+<xs:element name="country" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="RedeliveryDocumentResponseType">
+<xs:sequence>
+<xs:element name="acknowledgeMsg" type="tns:acknowledgeMsgType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="acknowledgeMsgType">
+<xs:sequence>
+<xs:element minOccurs="0" name="header" type="tns:HeaderMsgType"/>
+<xs:element minOccurs="0" name="acknowledge" type="tns:acknowledgeType"/>
+<xs:element minOccurs="0" name="trailer" type="tns:TrailObjType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="HeaderMsgType">
+<xs:sequence>
+<xs:element minOccurs="0" name="action" type="xs:string"/>
+<xs:element minOccurs="0" name="msgIdentifier" type="xs:string"/>
+<xs:element minOccurs="0" name="srcSystem" type="xs:string"/>
+<xs:element minOccurs="0" name="srcEnvironment" type="xs:string"/>
+<xs:element minOccurs="0" name="srcDbQualifier" type="xs:string"/>
+<xs:element minOccurs="0" name="srcTable" type="xs:string"/>
+<xs:element minOccurs="0" name="srcProgram" type="xs:string"/>
+<xs:element minOccurs="0" name="msgDate" type="xs:string"/>
+<xs:element minOccurs="0" name="msgTime" type="xs:string"/>
+<xs:element minOccurs="0" name="transType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="transSubCat" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="targetSystems" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:string"/>
+<xs:element minOccurs="0" name="fileID" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CodeDescPairType">
+<xs:sequence>
+<xs:element minOccurs="0" name="code" type="xs:string"/>
+<xs:element minOccurs="0" name="desc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="acknowledgeType">
+<xs:sequence>
+<xs:element minOccurs="0" name="ackReportingLevel" type="xs:string"/>
+<xs:element minOccurs="0" name="validationResults">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="fileLevelValidation">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="fileStatus" type="xs:string"/>
+<xs:element minOccurs="0" name="fileLevelErrors">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="fileError" type="tns:error"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="transactionLevelAck">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="transactionType" type="tns:CodeDescPairType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="transaction" nillable="true">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="transactionStatus" type="xs:string"/>
+<xs:element minOccurs="0" name="transactionKey" type="tns:key"/>
+<xs:element minOccurs="0" name="transactionLevelErrors">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="transactionError" nillable="true" type="tns:error"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="recordLevelAck">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="record" nillable="true">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="recordType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="recordKey" type="tns:key"/>
+<xs:element minOccurs="0" name="recordNumber" type="xs:int"/>
+<xs:element minOccurs="0" name="recordLevelErrors">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="recordError" nillable="true" type="tns:error"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="fieldLevelAck">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="field" nillable="true">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="fieldName" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="fieldStartPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="fieldEndPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="fieldLevelErrors">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fieldError" nillable="true" type="tns:error"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="error">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorCode" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="errorType" type="tns:CodeDescPairType"/>
+<xs:element minOccurs="0" name="sourceSysCode" type="tns:CodeDescPairType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="key">
+<xs:sequence>
+<xs:element minOccurs="0" name="keyName" type="xs:string"/>
+<xs:element minOccurs="0" name="keyValue" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TrailObjType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="objectCount" nillable="true" type="tns:CountType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="communicatedObjectCount" nillable="true" type="tns:CountType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="totalObjectCount" nillable="true" type="tns:CountType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CountType">
+<xs:sequence>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="occurance" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://optum.uhc.com/fulfillment/documents/v3.0" xmlns:ns1="http://apiengine.optum.com" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/v3.0">
+<xs:import namespace="http://apiengine.optum.com"/>
+<xs:element name="errors" type="ns1:errors"/>
+<xs:element name="result" type="ns1:result"/>
+<xs:element name="statusMessageLevel" type="ns1:statusMessageLevel"/>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://optum.uhc.com/fulfillment/documents/v3.0" xmlns:ns1="http://optum.uhc.com/fulfillment/documents/uploadDocument/v3.0" xmlns:ns2="http://apiengine.optum.com" xmlns:ns3="http://optum.uhc.com/fulfillment/documents/getDocument/v3.0" xmlns:ns4="http://optum.uhc.com/fulfillment/documents/updateDocumentProperties/v3.0" xmlns:ns5="http://optum.uhc.com/fulfillment/documents/updateDocumentContent/v3.0" xmlns:ns6="http://optum.uhc.com/fulfillment/documents/redeliveryDocument/v3.0" xmlns:ns7="http://optum.uhc.com/fulfillment/documents/findDocuments/v3.0" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/v3.0">
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/uploadDocument/v3.0"/>
+<xs:import namespace="http://apiengine.optum.com"/>
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/getDocument/v3.0"/>
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/updateDocumentProperties/v3.0"/>
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/updateDocumentContent/v3.0"/>
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/redeliveryDocument/v3.0"/>
+<xs:import namespace="http://optum.uhc.com/fulfillment/documents/findDocuments/v3.0"/>
+<xs:element name="UpdateDocumentContentResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="updateDocumentContentResponse" type="ns5:updateDocumentContentResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="UpdateDocumentPropertiesResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="updateDocumentPropertiesResponse" type="ns4:UpdateDocumentPropertiesResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="findDocuments">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="findDocumentsRequest" type="ns7:FindDocumentsRequestType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="findDocumentsResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="findDocumentsResponseType" type="ns7:findDocumentsResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="getDocument">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="getDocumentRequest" type="ns3:GetDocumentRequestType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="getDocumentResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="getDocumentResponse" type="ns3:GetDocumentResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="redeliveryDocument">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="redeliveryDocumentRequestType" type="ns6:RedeliveryDocumentRequestType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="redeliveryDocumentResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="redeliveryDocumentResponseType" type="ns6:RedeliveryDocumentResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateDocumentProperties">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="updateDocumentPropertiesRequest" type="ns4:UpdateDocumentPropertiesRequestType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="uploadDocumentResult">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="ns2:result">
+<xs:sequence>
+<xs:element minOccurs="0" name="uploadDocumentResponse" type="ns1:UploadDocumentResponseType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://optum.uhc.com/fulfillment/documents/updateDocumentContent/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/updateDocumentContent/v3.0">
+<xs:complexType name="updateDocumentContentResponseType">
+<xs:sequence>
+<xs:element minOccurs="0" name="documentId" type="xs:string"/>
+<xs:element minOccurs="0" name="changeToken" type="xs:string"/>
+<xs:element minOccurs="0" name="extension" type="tns:extensionType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="extensionType">
+<xs:sequence>
+<xs:element minOccurs="0" name="transformRequired" type="xs:boolean"/>
+<xs:element minOccurs="0" name="documentClass" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://optum.uhc.com/fulfillment/documents/getDocument/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/getDocument/v3.0">
+<xs:complexType name="GetDocumentResponseType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="document" nillable="true" type="tns:DocumentType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentType">
+<xs:sequence>
+<xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+<xs:element xmlns:ns1="http://www.w3.org/2005/05/xmlmime" minOccurs="0" name="stream" ns1:expectedContentTypes="application/octet-stream" type="xs:base64Binary"/>
+<xs:element minOccurs="0" name="length" type="xs:string"/>
+<xs:element minOccurs="0" name="filename" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="GetDocumentRequestType">
+<xs:sequence>
+<xs:element name="repositoryId" type="xs:string"/>
+<xs:element name="documentId" type="xs:string"/>
+<xs:element minOccurs="0" name="documentKeys" type="tns:DocumentKeyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentKeyType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="nameVal" nillable="true" type="tns:NameValType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="NameValType">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://apiengine.optum.com" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://apiengine.optum.com">
+<xs:import/>
+<xs:complexType name="result">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="errors" nillable="true" type="tns:errors"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="errors">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="severity" type="tns:statusMessageLevel"/>
+<xs:element minOccurs="0" name="origin" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="uri" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="statusMessageLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INFORMATIONAL"/>
+<xs:enumeration value="FAULT"/>
+<xs:enumeration value="EXCEPTION"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://optum.uhc.com/fulfillment/documents/uploadDocument/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/uploadDocument/v3.0">
+<xs:complexType name="UploadDocumentResponseType">
+<xs:sequence>
+<xs:element minOccurs="0" name="documentId" type="xs:string"/>
+<xs:element minOccurs="0" name="transformPerformed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="documentClass" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://optum.uhc.com/fulfillment/documents/updateDocumentProperties/v3.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/updateDocumentProperties/v3.0">
+<xs:complexType name="UpdateDocumentPropertiesRequestType">
+<xs:sequence>
+<xs:element name="documentId" type="xs:string"/>
+<xs:element name="repositoryId" type="xs:string"/>
+<xs:element name="documentKeys" type="tns:DocumentKeysType"/>
+<xs:element minOccurs="0" name="changeToken" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentKeysType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="documentKey" type="tns:DocumentKeyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DocumentKeyType">
+<xs:sequence>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="value" type="xs:string"/>
+<xs:element name="dataTypeIndicator" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UpdateDocumentPropertiesResponseType">
+<xs:sequence>
+<xs:element minOccurs="0" name="documentId" type="xs:string"/>
+<xs:element minOccurs="0" name="changeToken" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</grammars><resources base="http://apiengine-eisl-alpha1-fulfillment.ose-elr-core.optum.com/rest/api/eisl/documents/v3.0"><resource path="/"><method name="POST"><request><representation mediaType="multipart/form-data"/><representation mediaType="application/xml"/><representation mediaType="application/json"/><param name="mediaType" style="header" type="xs:string"/></request><response><representation mediaType="application/xml" element="prefix1:uploadDocumentResult"/><representation mediaType="application/json" element="prefix1:uploadDocumentResult"/></response></method><method name="PUT"><request><representation mediaType="multipart/form-data"/><representation mediaType="application/xml"/><representation mediaType="application/json"/><param name="mediaType" style="header" type="xs:string"/></request><response><representation mediaType="application/xml" element="prefix1:UpdateDocumentContentResult"/><representation mediaType="application/json" element="prefix1:UpdateDocumentContentResult"/></response></method><resource path="properties"><method name="POST"><request><representation mediaType="application/xml" element="prefix1:updateDocumentProperties"/><representation mediaType="application/json" element="prefix1:updateDocumentProperties"/></request><response><representation mediaType="application/xml" element="prefix1:UpdateDocumentPropertiesResult"/><representation mediaType="application/json" element="prefix1:UpdateDocumentPropertiesResult"/></response></method></resource><resource path="read"><method name="POST"><request><representation mediaType="application/xml" element="prefix1:getDocument"/><representation mediaType="application/json" element="prefix1:getDocument"/></request><response><representation mediaType="multipart/form-data"/><representation mediaType="application/xml" element="prefix1:getDocumentResult"/><representation mediaType="application/json" element="prefix1:getDocumentResult"/></response></method></resource><resource path="redelivery"><method name="POST"><request><representation mediaType="application/xml" element="prefix1:redeliveryDocument"/><representation mediaType="application/json" element="prefix1:redeliveryDocument"/></request><response><representation mediaType="application/xml" element="prefix1:redeliveryDocumentResult"/><representation mediaType="application/json" element="prefix1:redeliveryDocumentResult"/></response></method></resource><resource path="search"><method name="POST"><request><representation mediaType="application/xml" element="prefix1:findDocuments"/><representation mediaType="application/json" element="prefix1:findDocuments"/></request><response><representation mediaType="application/xml" element="prefix1:findDocumentsResult"/><representation mediaType="application/json" element="prefix1:findDocumentsResult"/></response></method></resource></resource></resources></application>

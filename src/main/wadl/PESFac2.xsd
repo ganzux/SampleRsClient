@@ -1,0 +1,1028 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0">
+    <!-- XML Schema matches the WSDL -->
+    <!-- WSDL used https://aeprodproxy.uhc.com/upm3/provider/ReadFacilityDetailV10?wsdl -->
+    <xsd:element name="FacilityDetail0001Response" type="FacilityDetail0001ResponseType" />
+    <xsd:complexType name="FacilityDetail0001ResponseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="metadata" type="metadataType" />
+            <xsd:element minOccurs="0" name="svcResponse" type="svcResponseType" />
+            <xsd:element minOccurs="0" name="ServiceFault" type="ServiceFaultType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ServiceFaultType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="faultCode" type="xsd:int" />
+            <xsd:element minOccurs="0" name="faultType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="message" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="svcResponseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="facilityInformation" type="facilityInformationType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="facilityInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="commonProviderDetailInformation" type="commonProviderDetailInformationType" />
+            <xsd:element minOccurs="0" name="facilityDetailInformation" type="facilityDetailInformationType" />
+            <xsd:element minOccurs="0" name="correspondenceInformation" type="correspondenceInformationType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="providerAffiliations" type="providerAffiliationsType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="bsar" type="bsarType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bsarType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="address" type="addressType" />
+            <xsd:element minOccurs="0" name="billingAddress" type="billingAddressType" />
+            <xsd:element minOccurs="0" name="bsarGroup" type="bsarGroupType" />
+            <xsd:element minOccurs="0" name="bsarId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="checkName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractSelection" type="contractSelectionType" />
+            <xsd:element minOccurs="0" name="groupName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="instance" type="instanceType" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="plsvAddress" type="plsvAddressType" />
+            <xsd:element minOccurs="0" name="segmentCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="statusIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxId" type="taxIdType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="taxIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="acceptsChampsVAPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptsVAPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="additionalPayCodeIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="bulkRecoveryIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="contractOrganization" type="contractOrganizationType" />
+            <xsd:element minOccurs="0" name="contractPaperTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="corporateOwnerFirstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="corporateOwnerLastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="corporateOwnerMiddleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="corporateOwnerProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="corporateServiceProvider" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="electronicPayStatementCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="incorporationType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="labOptOutIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="mdcrAssignDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="mdcrAssignIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="nonProfitIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="originalEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payToIndExcptIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payToIndHospitalBaseIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payeeFirstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payeeLastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payeeMiddleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payeeProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="paytoCreditRequiredIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTierCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationOriginalEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationTaxId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationTaxIdType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTinPayAffiliationTimelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxBNoticeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxBNoticeDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxIdType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinPrefix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinSuffix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="w9CopyTypeCode" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="tpsm" type="tpsmType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="tpsmType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="tpsmInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tpsmDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tpsmEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tpsmCancelDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contractOrganizationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="contractCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractOrganization" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractParType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payToIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tlReasonType" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="activeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="plsvAddressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressType" type="addressTypeType" />
+            <xsd:element minOccurs="0" name="billingAddressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="county" type="xsd:string" />
+            <xsd:element minOccurs="0" name="distance" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="epdAddressSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHours" type="extendedHoursType" />
+            <xsd:element minOccurs="0" name="handicapAccessible" type="xsd:string" />
+            <xsd:element minOccurs="0" name="inCareOfName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="latitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="longitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phone" type="phoneType" />
+            <xsd:element minOccurs="0" name="primaryAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinPrefix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinSuffix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="phoneType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="areaCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phoneExtension" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phoneNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryPhoneIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="useType" type="useTypeType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="useTypeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="extendedHoursType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="addressTypeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="instanceType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="xsd:string" />
+            <xsd:element minOccurs="0" name="instanceCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="platformId" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contractSelectionType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="agreementId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ammlf" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="continueDaysCountInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="currentVersion" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="enrollRule" type="xsd:string" />
+            <xsd:element minOccurs="0" name="enrollment" type="enrollmentType" />
+            <xsd:element minOccurs="0" name="excludeAdminFeeInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="excludeIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="fileExtDays" type="xsd:string" />
+            <xsd:element minOccurs="0" name="fileLimitDays" type="xsd:string" />
+            <xsd:element minOccurs="0" name="futureUse" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ipa" type="ipaType" />
+            <xsd:element minOccurs="0" name="lob" type="lobType" />
+            <xsd:element minOccurs="0" name="networkAffiliation" type="networkAffiliationType" />
+            <xsd:element minOccurs="0" name="orgType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="originalCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="originalEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panel" type="panelType" />
+            <xsd:element minOccurs="0" name="pcp" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpAgreementId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="platinumProviderInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="readmissionProcessingInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reason" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialty" type="specialtyType" />
+            <xsd:element minOccurs="0" name="status" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialtyType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="boardCertDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertExamDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertExpirationDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertification" type="boardCertificationType" />
+            <xsd:element minOccurs="0" name="categoryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="credentialingVerificationOrganizationID" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="residentIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="sourceCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialty" type="specialtyTypeType" />
+            <xsd:element minOccurs="0" name="specialtyFullDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtySmallDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tricareIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpOverrideIndicator" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="specialtyContractOrg" type="specialtyContractOrgType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialtyContractOrgType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="contractOrgCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contrOrgEffDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contrOrgCancDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialtyTypeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="boardCertificationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="panelType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="networkAffiliationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lobType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ipaType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="enrollmentType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="acceptExistingPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptingNewPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="autoAssign" type="xsd:string" />
+            <xsd:element minOccurs="0" name="gender" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="limit" type="xsd:string" />
+            <xsd:element minOccurs="0" name="maxAge" type="xsd:string" />
+            <xsd:element minOccurs="0" name="minAge" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bsarGroupType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="middleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="billingAddressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressType" type="addressTypeType" />
+            <xsd:element minOccurs="0" name="billingAddressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="county" type="xsd:string" />
+            <xsd:element minOccurs="0" name="distance" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="epdAddressSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHours" type="extendedHoursType" />
+            <xsd:element minOccurs="0" name="handicapAccessible" type="xsd:string" />
+            <xsd:element minOccurs="0" name="inCareOfName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="latitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="longitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phone" type="phoneType" />
+            <xsd:element minOccurs="0" name="primaryAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinPrefix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinSuffix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="addressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="primaryAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressType" type="addressTypeType" />
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="epdAddressSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="county" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+            <xsd:element minOccurs="0" name="distance" type="xsd:string" />
+            <xsd:element minOccurs="0" name="billingAddressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHours" type="extendedHoursType" />
+            <xsd:element minOccurs="0" name="handicapAccessible" type="xsd:string" />
+            <xsd:element minOccurs="0" name="inCareOfName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="latitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="longitude" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="phone" type="phoneType" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinPrefix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="topsTinSuffix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extAddressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extAddressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="vanityCity" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="addressContractOrg" type="addressContractType" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="externalDisplayAddress" type="externalDisplayAddressType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="externalDisplayAddressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="county" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="addressContractType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="contractOrgCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contrOrgEffDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contrOrgCancDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="providerAffiliationsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="activeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="address" type="addressType" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="hospitalAffiliation" type="hospitalAffiliationType" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="middleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="suffix" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxId" type="taxIdType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="hospitalAffiliationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="address" type="addressType" />
+            <xsd:element minOccurs="0" name="admittingPrivilegeTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="affiliatedProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="affiliationName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryHospitalAffiliationCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="unetProductCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="correspondenceInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="correspondenceType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="county" type="xsd:string" />
+            <xsd:element minOccurs="0" name="epdAddressSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="latitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="longitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxIdType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extAddressLine1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extAddressLine2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="vanityCity" type="xsd:string" />
+            <xsd:element minOccurs="0" name="externalDisplayAddress" type="externalDisplayAddressType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="facilityDetailInformationType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="areasOfExpertise" type="areasOfExpertiseType" />
+            <xsd:element minOccurs="0" name="degree" type="degreeType" />
+            <xsd:element minOccurs="0" name="facilityDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="facilityDistinction" type="xsd:string" />
+            <xsd:element minOccurs="0" name="facilityName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="facilityTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="gender" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="ncqaValues" type="ncqaValuesType" />
+            <xsd:element minOccurs="0" name="socialSecurityNumber" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ncqaValuesType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="recognitionCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="recongnitionDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="degreeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="activeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="degree" type="degreeTypeType" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="degreeTypeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="areasOfExpertiseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="aoeClassTypeInfo" type="aoeClassTypeInfoType" />
+            <xsd:element minOccurs="0" name="aoeTypeInfo" type="aoeTypeInfoType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="aoeTypeInfoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="aoeClassTypeInfoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="commonProviderDetailInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="acceptingNewPatientsCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptsChampsVaPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptsVaPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="additionalPayTypeCode" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="address" type="addressType" />
+            <xsd:element minOccurs="0" name="ageRange" type="xsd:string" />
+            <xsd:element minOccurs="0" name="atypicalProviderInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="beginAgeLimit" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="behavioralHealthQualityValues" type="behavioralHealthQualityValuesType" />
+            <xsd:element minOccurs="0" name="bhceValues" type="bhceValuesType" />
+            <xsd:element minOccurs="0" name="businessCategory" type="businessCategoryType" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="certificationType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimsRunoutDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cosmosContractStatusInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cosmosContractOffSet" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cosmosContractPSize" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cosmosContractTotal" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="cosmosContract" type="cosmosContractType" />
+            <xsd:element minOccurs="0" name="cspContractStatusInd" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="cspPlatformId" type="cspPlatformIdType" />
+            <xsd:element minOccurs="0" name="cspContractOffSet" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cspContractPSize" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cspContractTotal" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="cspContract" type="cspContractType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="dea" type="deaType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="delegatedEntity" type="delegatedEntityType" />
+            <xsd:element minOccurs="0" name="directoryIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="driveTime" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="educationInformation" type="educationInformationType" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="endAgeLimit" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHours" type="extendedHoursType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="facilityServiceCode" type="facilityServiceCodeType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="groupAffiliations" type="groupAffiliationsType" />
+            <xsd:element minOccurs="0" name="handicapAccessible" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="language" type="languageType" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="license" type="licenseType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="medicaidId" type="medicaidIdType" />
+            <xsd:element minOccurs="0" name="medicaidLocationCode" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="medicareId" type="medicareIdType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="npi" type="npiType" />
+            <xsd:element minOccurs="0" name="npiMore" type="xsd:string" />
+            <xsd:element minOccurs="0" name="officeLimitations" type="officeLimitationsType" />
+            <xsd:element minOccurs="0" name="payTo" type="payToType" />
+            <xsd:element minOccurs="0" name="pcmIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerClassification" type="providerClassificationType" />
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="specialty" type="specialtyType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="specialtyAtProductLevel" type="specialtyAtProductLevelType" />
+            <xsd:element minOccurs="0" name="taxId" type="taxIdType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="trainingInformation" type="trainingInformationType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="uhcid" type="uhcidType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="uhpd" type="uhpdType" />
+            <xsd:element minOccurs="0" name="unetContractOffSet" type="xsd:string" />
+            <xsd:element minOccurs="0" name="unetContractPSize" type="xsd:string" />
+            <xsd:element minOccurs="0" name="unetContractTotal" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="unetContract" type="unetContractType" />
+            <xsd:element minOccurs="0" name="unetContractStatusInd" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="unetContractType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="acceptingNewPatientsCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptingNewPatientsDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="additionalDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLinkIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="businessSegmentCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="businessSegmentDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractArrangementCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractArrangementDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractBillTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractOrganizationCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractOrganizationDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractOwnerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractPaperTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractPaperTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractProcedureCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractProcedureDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractSiteCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractTemplateId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractTemplateName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="dicartaDocId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="emergentWrapOptOut" type="xsd:string" />
+            <xsd:element minOccurs="0" name="emptorisDocumentId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="externalRates" type="xsd:string" />
+            <xsd:element minOccurs="0" name="facilityContractTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="facilityContractTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="feeScheduleNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ffsIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="hcfaProcedureIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ipaDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ipaNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="labAffiliationCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="marketName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="marketNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="marketTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="marketTypeDescription" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="medicalNecessityAgreement" type="medicalNecessityAgreementType" />
+            <xsd:element minOccurs="0" name="medicareCoinsurancePercentage" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicareDeductiblePercent" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicareExtendedAbsentIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="middleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="orgType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="outpatientRateId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="payMethodCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="penaltyIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="penaltyNotifyId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="procedureIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productCategoryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productGroupCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productGroupDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productOfferDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productOfferId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reason" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reassignedEpdAddressSeqId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reassignedIpaNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reassignedProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reimbursementWithholdPercentage" type="xsd:string" />
+            <xsd:element minOccurs="0" name="relationshipListNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="relationshipListVersionNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyProcedureNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="timelyFilingDays" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tin" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tinType" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="topsProductCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="untimelyPaymentCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="vendorCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="medicalNecessityAgreementType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="documentId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="documentIdTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicalNecessityIndicator" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="uhpdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="efficiency" type="efficiencyType" />
+            <xsd:element minOccurs="0" name="focusCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="focusDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="programCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="programDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="programValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qeDesignationPriority" type="xsd:string" />
+            <xsd:element minOccurs="0" name="quality" type="qualityType" />
+            <xsd:element minOccurs="0" name="stateTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="uhpdDateRange" type="uhpdDateRangeType" />
+            <xsd:element minOccurs="0" name="qEBehaviorDesignationPriorityNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qEBehaviorDesignationTierNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qEDesignationTierNumber" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="uhpdDateRangeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="startDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="stopDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="qualityType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="efficiencyType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="uhcidType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="activeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="billingAddressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="division" type="xsd:string" />
+            <xsd:element minOccurs="0" name="divisionDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="endDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="placeOfServiceAddressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="trainingInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="completeDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="schoolCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="trainingTypeCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialtyAtProductLevelType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="marketType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productGroupCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="productOfferId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialty" type="specialtyType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="providerClassificationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="providerClassification" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerClassificationDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="payToType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="officeLimitationsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contact" type="contactType" />
+            <xsd:element minOccurs="0" name="electronicCommunication" type="electronicCommunicationType" />
+            <xsd:element minOccurs="0" name="extendedHoursTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="gender" type="xsd:string" />
+            <xsd:element minOccurs="0" name="language" type="languageType" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicaidId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicaidLocationCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="officeHours" type="officeHoursType" />
+            <xsd:element minOccurs="0" name="patientBeginAge" type="xsd:string" />
+            <xsd:element minOccurs="0" name="patientEndAge" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxID" type="taxIdType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="officeHoursType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="dayOfTheWeek" type="xsd:string" />
+            <xsd:element minOccurs="0" name="endTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="endTime2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="startTime2" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="language" type="languageTypeType" />
+            <xsd:element minOccurs="0" name="languageSpokenBy" type="languageSpokenByType" />
+            <xsd:element minOccurs="0" name="languageWrittenBy" type="languageWrittenByType" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageWrittenByType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageSpokenByType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="name" type="xsd:string" />
+            <xsd:element minOccurs="0" name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageTypeType">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string" />
+            <xsd:element name="value" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="electronicCommunicationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="active" type="activeType" />
+            <xsd:element minOccurs="0" name="communicationAddress" type="xsd:string" />
+            <xsd:element minOccurs="0" name="communicationTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="electronicIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="electronicProviderOrAddressInd" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contactType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="contactName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contactRoleCode" type="contactRoleCodeType" />
+            <xsd:element minOccurs="0" name="contactTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phone" type="phoneType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contactRoleCodeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="npiType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="dataSourceTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="npi" type="xsd:string" />
+            <xsd:element minOccurs="0" name="npiLevel" type="npiLevelType" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="nPITaxonomyCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="npiLevelType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="medicareIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="activeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="claimProcedureCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicareId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicareIdLevelTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="reasonCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxID" type="taxIdType" />
+            <xsd:element minOccurs="0" name="userId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="userOfficeCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="medicaidIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="address" type="addressType" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="dataSourceTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicaidId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="medicaidIdLevelTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="stateCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxID" type="taxIdType" />
+            <xsd:element minOccurs="0" name="timelineReasonTypeCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="licenseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="accreditationCertificationNbr" type="xsd:string" />
+            <xsd:element minOccurs="0" name="agencyExpirationDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="credentialingVerificationOrgCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="expirationDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="licenseNbr" type="xsd:string" />
+            <xsd:element minOccurs="0" name="stateCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="dEANumber" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="groupAffiliationsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressType" type="addressType" />
+            <xsd:element minOccurs="0" name="groupExistsIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="taxId" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="facilityServiceCodeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressType" type="addressType" />
+            <xsd:element minOccurs="0" name="specialty" type="specialtyType" />
+            <xsd:element minOccurs="0" name="taxID" type="taxIdType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="educationInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="completeDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="degreeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="school" type="schoolType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="schoolType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="delegatedEntityType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="delegatedEntity" type="delegatedEntityTypeType" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastUpdateTime" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="delegatedEntityTypeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDesc" type="xsd:string" />
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="deaType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="deaNumber" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cspContractType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="facetsLineOfBusiness" type="xsd:string" />
+            <xsd:element minOccurs="0" name="platformProviderId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="effectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="cancelDate" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cspPlatformIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="platformProviderId" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cosmosContractType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="actionCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="administrativeHoldCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="administrativeHoldEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="administrativeHoldReasonCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="billingSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="contractNumber" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="cosmosData" type="cosmosDataType" />
+            <xsd:element minOccurs="0" name="dateStamp" type="xsd:string" />
+            <xsd:element minOccurs="0" name="division" type="xsd:string" />
+            <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="groupIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="groupPractice" type="xsd:string" />
+            <xsd:element minOccurs="0" name="hcfaPanel" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="middleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="networkNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="newPatientIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="officeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="opid" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelCancelDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelShortDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelStatusCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcpType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="penaltyNotificationId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="placeOfServiceSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="role" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialAgreementDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyAgreementIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyAgreementNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="specialtyAgreementType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="terminationCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ubPanel" type="xsd:string" />
+            <xsd:element minOccurs="0" name="verificationIndicator" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cosmosDataType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="contractTemplateId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="dicartaDocId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelEffectiveDate" type="xsd:string" />
+            <xsd:element minOccurs="0" name="panelNumber" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="businessCategoryType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="categoryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="categoryDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="subCategoryCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="subCategoryDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bhceValuesType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="bhceRecognitionCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="bhceRecognitionDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="behavioralHealthQualityValuesType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="efficiencyRatingCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="efficiencyRatingDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qualityDesignationPriority" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qualityRatingCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="qualityRatingDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="metadataType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="offset" type="xsd:int" />
+            <xsd:element minOccurs="0" name="psize" type="xsd:int" />
+            <xsd:element minOccurs="0" name="total" type="xsd:int" />
+            <xsd:element minOccurs="0" name="elapsedTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="elasticTime" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

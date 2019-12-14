@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by United Health Group United Health Group (United Health Group) -->
+
+<xs:schema version="2.00" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://optum.uhc.com/fulfillment/documents/getDocument/v2.0" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:tns="http://optum.uhc.com/fulfillment/documents/getDocument/v2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element type="tns:GetDocumentRequestType" name="getDocumentRequest"/>
+
+<xs:element type="tns:GetDocumentResponseType" name="getDocumentResponse"/>
+
+
+<xs:complexType name="GetDocumentRequestType">
+
+
+<xs:sequence>
+
+
+<xs:element type="xs:string" name="repositoryId" minOccurs="1">
+
+
+<xs:annotation>
+
+<xs:documentation>RepositoryId is ID of the virtual repository to retrieve documents in EDMS and reponsible to route the request to the designated backend</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="xs:string" name="documentId" minOccurs="1">
+
+
+<xs:annotation>
+
+<xs:documentation>Object Id of the Document</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="tns:DocumentKeyType" name="documentKeys" minOccurs="0" maxOccurs="1">
+
+
+<xs:annotation>
+
+<xs:documentation>Contain at least one set of namevalue Pairs, which represents a unique meta data property</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+</xs:sequence>
+
+</xs:complexType>
+
+
+<xs:complexType name="GetDocumentResponseType">
+
+
+<xs:sequence>
+
+
+<xs:element type="xs:string" name="mimeType" minOccurs="0">
+
+
+<xs:annotation>
+
+<xs:documentation>The mimeType of the document</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="xs:base64Binary" name="stream" minOccurs="0" xmime:expectedContentTypes="application/octet-stream">
+
+
+<xs:annotation>
+
+<xs:documentation> Physical Document Attachement</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="xs:string" name="length" minOccurs="0">
+
+
+<xs:annotation>
+
+<xs:documentation>Size of the document</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="xs:string" name="filename" minOccurs="0">
+
+
+<xs:annotation>
+
+<xs:documentation>Name of the document</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+</xs:sequence>
+
+</xs:complexType>
+
+
+<xs:complexType name="DocumentKeyType">
+
+
+<xs:sequence>
+
+<xs:element type="tns:NameValType" name="nameVal" minOccurs="0" maxOccurs="unbounded"/>
+
+</xs:sequence>
+
+</xs:complexType>
+
+
+<xs:complexType name="NameValType">
+
+
+<xs:sequence>
+
+
+<xs:element type="xs:string" name="name" minOccurs="0">
+
+
+<xs:annotation>
+
+<xs:documentation>name of the property </xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+
+<xs:element type="xs:string" name="value" minOccurs="0">
+
+
+<xs:annotation>
+
+<xs:documentation>Value of the property</xs:documentation>
+
+</xs:annotation>
+
+</xs:element>
+
+</xs:sequence>
+
+</xs:complexType>
+
+</xs:schema>

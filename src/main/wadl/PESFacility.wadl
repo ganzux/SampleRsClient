@@ -1,0 +1,135 @@
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <grammars>
+     
+      <include href="PESFac1.xsd"/>
+      <include href="PESFac2.xsd"/>
+   </grammars>
+   <resources base="http://provsrchportal-int-stg.uhc.com/NDBProviderSearchV8/provider/facilities/v8.0/search">
+      <resource path="/">
+         <method name="POST">
+            <request>
+               <representation mediaType="application/x-www-form-urlencoded">
+                  <param name="prov-class-cd" style="query" type="xs:string"/>
+                  <param name="active-ind" style="query" type="xs:string"/>
+                  <param name="uhpd-ind" style="query" type="xs:string"/>
+                  <param name="uhpd-tier-cd" style="query" type="xs:string"/>
+                  <param name="tel-pri-ind" style="query" type="xs:string"/>
+                  <param name="spcl-pri-ind" style="query" type="xs:string"/>
+                  <param name="adr-pri-ind" style="query" type="xs:string"/>
+                  <param name="prov-id" style="query" type="xs:string"/>
+                  <param name="csp-prov-id" style="query" type="xs:string"/>
+                  <param name="npi-id" style="query" type="xs:string"/>
+                  <param name="cosmos-div" style="query" type="xs:string"/>
+                  <param name="cosmos-prov-typ" style="query" type="xs:string"/>
+                  <param name="cosmos-prov-nbr" style="query" type="xs:string"/>
+                  <param name="facl-nm" style="query" type="xs:string"/>
+                  <param name="tax-id-nbr" style="query" type="xs:string"/>
+                  <param name="area-cd" style="query" type="xs:string"/>
+                  <param name="phone-nbr" style="query" type="xs:string"/>
+                  <param name="phone-typ-cd" style="query" type="xs:string"/>
+                  <param name="mdcr-id" style="query" type="xs:string"/>
+                  <param name="mdcd-id" style="query" type="xs:string"/>
+                  <param name="spcl-typ-cd" style="query" type="xs:string"/>
+                  <param name="org-type-cd" style="query" type="xs:string"/>
+                  <param name="risk-carve-out-ind" style="query" type="xs:string"/>
+                  <param name="pnc-contract-typ-cd" style="query" type="xs:string"/>
+                  <param name="mkt-nbr" style="query" type="xs:string"/>
+                  <param name="mkt-typ-cd" style="query" type="xs:string"/>
+                  <param name="prdct-grp-cd" style="query" type="xs:string"/>
+                  <param name="cosmos-panel-nbr" style="query" type="xs:string"/>
+                  <param name="radius" style="query" type="xs:string"/>
+                  <param name="st-cd" style="query" type="xs:string"/>
+                  <param name="county-nm" style="query" type="xs:string"/>
+                  <param name="zip" style="query" type="xs:string"/>
+                  <param name="city-nm" style="query" type="xs:string"/>
+                  <param name="adr-typ-cd" style="query" type="xs:string"/>
+                  <param name="adr-seq" style="query" type="xs:string"/>
+                  <param name="contract-id" style="query" type="xs:string"/>
+                  <param name="mednec-admin-start-dt" style="query" type="xs:string"/>
+                  <param name="csp-line-of-bus-cd" style="query" type="xs:string"/>
+                  <param name="cosmos-status-cd" style="query" type="xs:string"/>
+                  <param name="sort-by" style="query" type="xs:string"/>
+                  <param name="sort-order" style="query" type="xs:string"/>
+                  <param name="start" style="query" type="xs:string"/>
+                  <param name="count" style="query" type="xs:string"/>
+                  <param name="unet-contracts-count" style="query" type="xs:string"/>
+                  <param name="cosmos-contracts-count" style="query" type="xs:string"/>
+                  <param name="facets-contracts-count" style="query" type="xs:string"/>
+                  <param name="attribute-set" style="query" type="xs:string"/>
+                  <param name="app-nm" style="query" type="xs:string"/>
+                  <param name="prov-active-cd" style="query" type="xs:string"/>
+                  <param name="tin-active-cd" style="query" type="xs:string"/>
+                  <param name="adr-active-cd" style="query" type="xs:string"/>
+                  <param name="spcl-active-cd" style="query" type="xs:string"/>
+                  <param name="phone-active-cd" style="query" type="xs:string"/>
+                  <param name="npi-active-cd" style="query" type="xs:string"/>
+                  <param name="contract-pnc-active-cd" style="query" type="xs:string"/>
+                  <param name="contract-cosmos-active-cd" style="query" type="xs:string"/>
+                  <param name="contract-ovtn-active-cd" style="query" type="xs:string"/>
+                  <param name="lang-active-cd" style="query" type="xs:string"/>
+                  <param name="uhpd-active-cd" style="query" type="xs:string"/>
+                  <param name="ext-hrs-active-cd" style="query" type="xs:string"/>
+                  <param name="mednec-active-cd" style="query" type="xs:string"/>
+                  <param name="bsar-active-cd" style="query" type="xs:string"/>
+                  <param name="mdcr-active-cd" style="query" type="xs:string"/>
+                  <param name="mdcd-active-cd" style="query" type="xs:string"/>
+                  <param name="dea-active-cd" style="query" type="xs:string"/>
+                  <param name="months-of-inactive-data" style="query" type="xs:string"/>
+                  <param name="search-ntwk-recip-id" style="query" type="xs:string"/>
+                  <param name="search-corp-bus-seg-cd" style="query" type="xs:string"/>
+                  <param name="search-platform-cd" style="query" type="xs:string"/>
+                  <param name="process-ind" style="query" type="xs:string"/>
+                  <param name="contract-sel-ntwk-recip-id" style="query" type="xs:string"/>
+                  <param name="contract-sel-corp-bus-seg-cd" style="query" type="xs:string"/>
+                  <param name="contract-sel-platform-cd" style="query" type="xs:string"/>
+                  <param name="member-mkt-typ" style="query" type="xs:string"/>
+                  <param name="member-mkt-nbr" style="query" type="xs:string"/>
+                  <param name="member-product-cd" style="query" type="xs:string"/>
+                  <param name="pcp-mkt-nbr" style="query" type="xs:string"/>
+                  <param name="pcp-ipa-nbr" style="query" type="xs:string"/>
+                  <param name="pcp-ind" style="query" type="xs:string"/>
+                  <param name="service-from-date" style="query" type="xs:string"/>
+                  <param name="service-to-date" style="query" type="xs:string"/>
+                  <param name="sa-id" style="query" type="xs:string"/>
+                  <param name="obligor-id" style="query" type="xs:string"/>
+                  <param name="behavioral-ind" style="query" type="xs:string"/>
+                  <param name="ncqa-cd" style="query" type="xs:string"/>
+                  <param name="bhqm-ind" style="query" type="xs:string"/>
+                  <param name="dir-elig-ind" style="query" type="xs:string"/>
+                  <param name="facl-gender-cd" style="query" type="xs:string"/>
+                  <param name="lang-cd" style="query" type="xs:string"/>
+                  <param name="lang-spoken-by-cd" style="query" type="xs:string"/>
+                  <param name="latitude" style="query" type="xs:string"/>
+                  <param name="longitude" style="query" type="xs:string"/>
+                  <param name="aoe-typ-cd" style="query" type="xs:string"/>
+                  <param name="mv-pcm-ind" style="query" type="xs:string"/>
+                  <param name="mv-va-cd" style="query" type="xs:string"/>
+                  <param name="facl_pgm_qual_cd" style="query" type="xs:string"/>
+                  <param name="rollup-use-typ-cd" style="query" type="xs:string"/>
+                  <param name="rollup-bus-seg-cd" style="query" type="xs:string"/>
+                  <param name="rollup-contract-org-cd" style="query" type="xs:string"/>
+                  <param name="rollup-bus-cat-cd" style="query" type="xs:string"/>
+                  <param name="rollup-bus-sub-cat-cd" style="query" type="xs:string"/>
+                  <param name="rollup-spcl-bus-cat-cd" style="query" type="xs:string"/>
+                  <param name="pgm-rollup-use-typ-cd" style="query" type="xs:string"/>
+                  <param name="pgm-rollup-bus-seg-cd" style="query" type="xs:string"/>
+                  <param name="pgm-rollup-contract-org-cd" style="query" type="xs:string"/>
+                  <param name="pgm-rollup-bus-cat-cd" style="query" type="xs:string"/>
+                  <param name="pgm-rollup-bus-sub-cat-cd" style="query" type="xs:string"/>
+                  <param name="med-behav-ind" style="query" type="xs:string"/>
+                  <param name="facl-pgm-use-type" style="query" type="xs:string"/>
+                  <param name="nhp-flex-ind" style="query" type="xs:string"/>
+                  <param name="adr-id" style="query" type="xs:string"/>
+                  <param name="contr-org-cd" style="query" type="xs:string"/>
+                  <param name="unet-contract-start" style="query" type="xs:string"/>
+                  <param name="cosmos-contract-start" style="query" type="xs:string"/>
+                  <param name="facets-contract-start" style="query" type="xs:string"/>
+               </representation>
+            </request>
+            <response>
+               <representation mediaType="application/xml"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

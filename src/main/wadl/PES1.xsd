@@ -1,0 +1,275 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0">
+    <xsd:element name="ProfessionalDetail0003Response" type="ProfessionalDetail0003ResponseType" />
+    <xsd:complexType name="ProfessionalDetail0003ResponseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="metadata" type="metadataType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="svcResponse" type="svcResponseType" />
+            <xsd:element minOccurs="0" name="ServiceFault" type="ServiceFaultType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- <xsd:complexType name="ServiceFaultType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="faultCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="faultType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="message" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> 
+    <xsd:complexType name="svcResponseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="physicianDetail" type="physicianDetailType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    -->
+    <xsd:complexType name="physicianDetailType">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="affiliatedFacilities" type="affiliatedFacilitiesType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="affiliatedGroups" type="affiliatedGroupsType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="areasOfExpertise" type="areasOfExpertiseType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="behavioralQualityManagement" type="behavioralQualityManagementType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="educationInformation" type="educationInformationType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="languageReference" type="languageReferenceType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="npi" type="npiType" />
+            <xsd:element minOccurs="0" name="physicianDemographicDetail" type="physicianDemographicDetailType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="recognitionPrograms" type="recognitionProgramsType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="specialty" type="specialtyType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="specialtyGroup" type="specialtyGroupType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="uhpdReference" type="uhpdReferenceType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="uhpdReferenceType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="efficiency" type="efficiencyType" />
+            <xsd:element minOccurs="0" name="quality" type="qualityType" />
+            <xsd:element minOccurs="0" name="qeDesignationPriority" type="xsd:string" />
+            <xsd:element minOccurs="0" name="focusCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- <xsd:complexType name="qualityType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> 
+    <xsd:complexType name="efficiencyType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>-->
+    <xsd:complexType name="specialtyGroupType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="specialCategoryId" type="specialCategoryIdType" />
+            <xsd:element minOccurs="0" name="specialSubCategoryId" type="specialSubCategoryIdType" />
+            <xsd:element minOccurs="0" name="primarySpecialtyIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertification" type="boardCertificationType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="boardCertificationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialSubCategoryIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="specialCategoryIdType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- <xsd:complexType name="specialtyType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="specialty" type="specialtyCodeType" />
+            <xsd:element minOccurs="0" name="specialtyFullDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primarySpecialtyIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="boardCertification" type="boardCertificationType" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <xsd:complexType name="specialtyCodeType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="recognitionProgramsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeDescPair" type="codeDescPairType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="codeDescPairType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="physicianDemographicDetailType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="gender" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tin" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tinType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptPatientCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pcmCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ethnicTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ethnicTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="webAddress" type="xsd:string" />
+            <xsd:element minOccurs="0" name="emailAddress" type="xsd:string" />
+            <xsd:element minOccurs="0" name="patientBeginningAge" type="xsd:string" />
+            <xsd:element minOccurs="0" name="patientEndingAge" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerName" type="providerNameType" />
+            <xsd:element minOccurs="0" name="providerAddress" type="providerAddressType" />
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="providerPhone" type="providerPhoneType" />
+            <xsd:element minOccurs="0" name="distanceFromKey" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLatitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressLongitude" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptVaPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="acceptChampsVaPatients" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHourCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="extendedHourDescription" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="providerPhoneType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="phoneUseTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phoneUseTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="areaCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phoneNumber" type="xsd:string" />
+            <xsd:element minOccurs="0" name="phoneExtension" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryTelephoneIndicator" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="providerAddressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="addressId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="epdAddressSequenceId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="primaryAddressIndicator" type="xsd:string" />
+            <xsd:element minOccurs="0" name="addressTypeDescription" type="xsd:string" />
+            <xsd:element minOccurs="0" name="postalAddress" type="postalAddressType" />
+            <xsd:element minOccurs="0" name="handicapAccessibility" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+  <!--   <xsd:complexType name="postalAddressType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="street1" type="xsd:string" />
+            <xsd:element minOccurs="0" name="street2" type="xsd:string" />
+            <xsd:element minOccurs="0" name="street3" type="xsd:string" />
+            <xsd:element minOccurs="0" name="city" type="xsd:string" />
+            <xsd:element minOccurs="0" name="state" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+            <xsd:element minOccurs="0" name="zip4" type="xsd:string" />
+            <xsd:element minOccurs="0" name="countryCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <xsd:complexType name="providerNameType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="professionalName" type="professionalNameType" />
+            <xsd:element minOccurs="0" name="degreeCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="professionalNameType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="firstName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="middleName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="lastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="nameSuffix" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+ <!--    <xsd:complexType name="npiType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="npi" type="xsd:string" />
+            <xsd:element minOccurs="0" name="npiLevelCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <xsd:complexType name="languageReferenceType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="language" type="languageType" />
+            <xsd:element minOccurs="0" name="languageSpokenBy" type="languageSpokenByType" />
+            <xsd:element minOccurs="0" name="languageWrittenBy" type="languageWrittenByType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageWrittenByType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="languageSpokenByType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- <xsd:complexType name="languageType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <xsd:complexType name="educationInformationType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="schoolName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="graduationYear" type="xsd:string" />
+            <xsd:element minOccurs="0" name="schoolCode" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="behavioralQualityManagementType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="efficiency" type="efficiencyType" />
+            <xsd:element minOccurs="0" name="quality" type="qualityType" />
+            <xsd:element minOccurs="0" name="qeDesignationPriority" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+<!--     <xsd:complexType name="areasOfExpertiseType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="aoeTypeInfo" type="aoeTypeInfoType" />
+            <xsd:element minOccurs="0" name="aoeClassTypeInfo" type="aoeClassTypeInfoType" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <!--<xsd:complexType name="aoeClassTypeInfoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+     <xsd:complexType name="aoeTypeInfoType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="codeValue" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descValue" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+    <xsd:complexType name="affiliatedGroupsType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tin" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tinTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="affiliationName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerAddress" type="providerAddressType" />
+            <xsd:element minOccurs="0" name="providerPhone" type="providerPhoneType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="affiliatedFacilitiesType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="providerId" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tin" type="xsd:string" />
+            <xsd:element minOccurs="0" name="tinTypeCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="affiliationName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="providerAddress" type="providerAddressType" />
+            <xsd:element minOccurs="0" name="providerPhone" type="providerPhoneType" />
+        </xsd:sequence>
+    </xsd:complexType>
+   <!--  <xsd:complexType name="metadataType">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="elapsedTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="elasticTime" type="xsd:string" />
+            <xsd:element minOccurs="0" name="offset" type="xsd:int" />
+            <xsd:element minOccurs="0" name="psize" type="xsd:int" />
+            <xsd:element minOccurs="0" name="total" type="xsd:int" />
+        </xsd:sequence>
+    </xsd:complexType> -->
+</xsd:schema>
